@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing Component</title>
-
     <link rel="stylesheet" href="main.css">
+
+    <script src="https://kit.fontawesome.com/97b1e7a7a6.js" crossorigin="anonymous"></script>
 </head>
 <body>
     
@@ -14,17 +15,19 @@
 
       <div class="package">
         <div class="dinamic-info">
-          <h3 class="pages"><span class="p-num">0</span>K PAGEVIEWS</h3>
-          <h2 class="price">$<span class="price-num">00.00</span> / month</h2>
+          <h3 class="pages"><span class="value-num">0</span>K PAGEVIEWS</h3>
+          <h2 class="price">$<span class="price-num">00.00</span><span class="month"> / month</span></h2>
         </div>
-          <input id="range" class="level" type="range" value="0">
+        <div class="slider">
+          <input id="range" class="level" type="range" min="0" max="300" value="50">
+        </div>
       </div>
 
       <div class="choose-bill">
           <p class="monthly">Monthly Billing</p>
-          <label class="switch">
-            <input type="checkbox">
-            <span class="slider round"></span>
+          <label class="switch-select" for="switch">
+            <input class="toggle__input" id="switch" type="checkbox">
+            <div class="switch-fill"></div>
           </label>
           <p class="yearly">Yearly Billing</p>
           <p class="discount">25% discount</p>
@@ -32,9 +35,9 @@
 
       <div class="info-package">
           <div class="info-text">
-              <p class="info-item">Unlimited websites</p>
-              <p class="info-item">100% data ownership</p>
-              <p class="info-item">Email reports</p>
+              <p class="info-item"><i class="fas fa-check"></i>Unlimited websites</p>
+              <p class="info-item"><i class="fas fa-check"></i>100% data ownership</p>
+              <p class="info-item"><i class="fas fa-check"></i>Email reports</p>
           </div>
 
           <button class="trial-btn">Start my trial</button>

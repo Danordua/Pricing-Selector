@@ -7,6 +7,11 @@
     --lightgray-clr: #6e6969;
 
     --lato-font: 'Roboto', sans-serif;
+
+    /* toggle switch */
+    --width: 3.5em;
+    --height: calc(var(--width) / 2);
+    --border-radius: calc(var(--height) / 2);
 }
 
 *, *::after, *::before {
@@ -23,9 +28,11 @@ body {
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 60%;
     padding: 2em;
     background: var(--white-clr);
+    border-radius: 25px;
+    box-shadow: 0 0 .7em rgba(0, 0, 0, 0.25);
 }
 
 .dinamic-info {
@@ -34,23 +41,52 @@ body {
     padding: 0 .5em;
 }
 
-.level {
-    width: 90%;
-    -webkit-appearance: none;
-    appearance: none;
-    border-radius: 50px;
-    margin: .9px 0 0 2em;
-    background-color: var(--blue-clr);
+.dinamic-info .pages {
+  font-size: 1.4em;
+}
+
+.dinamic-info .month {
+  color: var(--lightgray-clr);
+  font-size: 1.2rem;
+}
+
+.slider {
+   width: 85%;
+   height: 1em;
+   margin-left: 5.8%;
+}
+
+.slider input {
+   height: 100%;
+   width: 100%;
+   -webkit-appearance: none;
+   outline: none;
+   background: rgb(211, 238, 243);
+   border-radius: 3em;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  border: 1px solid #3b3a3a;
+  height: 2em;
+  width: 2em;
+  border-radius: 50px;
+  background: var(--blue-clr);
+  cursor: pointer;
+  -webkit-appearance: none;
 }
 
 .choose-bill {
-    font-size: .85rem;
+    padding: 0 3em;
+    font-size: 1rem;
     display: flex;
     align-content: center;
-    margin-left: 45%;
-    justify-content: space-around;
+    margin-left: 20%;
     margin-top: 1em;
     color: var(--lightgray-clr);
+}
+
+.choose-bill > *:not(:first-child){
+  margin-left: .8em;
 }
 
 .choose-bill .discount {
@@ -59,72 +95,52 @@ body {
     align-self: center;
     padding-top: 2px;
 }
+ 
+/* switch toggle */
+.switch-select {
+   display: inline-block;
+   cursor: pointer;
+}
 
-/* The switch - the box around the slider */
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 4.5em;
-    height: 2.5em;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+.toggle__input {
+   display: none;
+}
 
+.switch-fill {
+   position: relative;
+   margin-top: .68em;
+   width: var(--width);
+   height: var(--height);
+   border-radius: var(--border-radius);
+   background: #ddd;
+   transition: background 0.2s;
+}
+
+.toggle__input:checked ~ .switch-fill {
+   background: rgb(180, 232, 241);
+}
+
+.switch-fill::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: var(--height);
+   width: var(--height);
+   background: #fff;
+   box-shadow: 0 0 .7em rgba(0, 0, 0, 0.25);
+   border-radius: var(--border-radius);
+   transition: transform 0.3s;
+}
+
+.toggle__input:checked ~ .switch-fill::after {
+   transform: translateX(var(--height));
+}
+
+/* */
 .info-package {
-    margin-top: 4em;
+    padding: 0 1em;
+    margin-top: 2.5em;
     display: flex;
     justify-content: space-between;
 }
@@ -134,12 +150,24 @@ body {
     color: var(--lightgray-clr);
 }
 
+.fas {
+  color: green;
+  margin-right: 4px;
+}
+
+/* trial btn */
 .info-package .trial-btn {
-    height: 5em;
-    width: 20em;
+    height: 3.5em;
+    width: 13em;
     align-self: center;
-    margin-right: 2em;
+    border: 2px solid var(--white-clr);
     border-radius: 50px;
     background: var(--blue-clr);
+    font-size: 1.2rem;
     color: var(--white-clr);
+    cursor: pointer;
+}
+
+.info-package .trial-btn:hover{
+  color: var(--discount-clr);
 }
