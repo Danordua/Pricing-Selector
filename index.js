@@ -1,10 +1,21 @@
 const level = document.querySelector('#range');
+
 const numPages = document.querySelector('.value-num');
 const price = document.querySelector('.price-num');
-const switchBtn = document.querySelector('#switch');
-const text1 = document.querySelector('.text1');
-const x = document.querySelector('.fas');
 
+const switchBtn = document.querySelector('#switch');
+
+// const para saber que incluye el paquete 
+const x3 = document.querySelector('.x3');
+const x1 = document.querySelector('.x1');
+
+//
+const s1 = document.querySelector('.step1');
+const s2 = document.querySelector('.step2');
+const s3 = document.querySelector('.step3');
+const s4 = document.querySelector('.step4');
+const s5 = document.querySelector('.step5');
+console.log(s2.style.width)
 // cambia los numeros de pages
 numPages.textContent = Number(level.value) * 100;
 switchBtn.value = 'off';
@@ -28,34 +39,45 @@ function selectPack(){
     if (level.value == 1) {
       numPages.textContent = Number(level.value) * 100;
       price.textContent = 0;
-      level.style.background = '#D3EEF3';
-      x.classList.remove('fa-check')
-      x.classList.add('fa-times')
+      x3.classList.remove('fa-check');
+      x3.classList.add('fa-times');
+      x1.classList.remove('fa-check');
+      x1.classList.add('fa-times');
+      s1.style.width = '.6em'
+      s1.style.height = '.6em'
     }
     if (level.value == 2) {
       numPages.textContent = 500;
       price.textContent = 12;
-      level.style.background = '#B0E9F4';
-      x.classList.remove('fa-times')
-      x.classList.add('fa-check')
+      x3.classList.remove('fa-times');
+      x3.classList.add('fa-check');
+      x1.classList.remove('fa-check');
+      x1.classList.add('fa-times');
+      s2.style.width = '.6em'
+      s2.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
     if (level.value == 3) {
       numPages.textContent = '1K';
       price.textContent = 16;
-      level.style.background = '#88CBD7';
+      x1.classList.remove('fa-times');
+      x1.classList.add('fa-check');
+      s3.style.width = '.6em'
+      s3.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
     if (level.value == 4) {
       numPages.textContent = '5K';
       price.textContent = 24;
-      level.style.background = '#6FB9C6';
+      s4.style.width = '.6em'
+      s4.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
     if (level.value == 5) {
       numPages.textContent = '10K';
       price.textContent = 36;
-      level.style.background = '#4196A6';
+      s5.style.width = '.6em'
+      s5.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
 }
