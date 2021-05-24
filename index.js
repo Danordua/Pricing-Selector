@@ -10,6 +10,7 @@ const x3 = document.querySelector('.x3');
 const x1 = document.querySelector('.x1');
 
 //
+const steps = document.querySelectorAll('.steps');
 const s1 = document.querySelector('.step1');
 const s2 = document.querySelector('.step2');
 const s3 = document.querySelector('.step3');
@@ -33,6 +34,7 @@ switchBtn.addEventListener('click', () => {
 })
 
 level.addEventListener('input', selectPack);
+level.addEventListener('input', costumeSteps);
 
 function selectPack(){
     let priceNum = parseInt(price.textContent);
@@ -43,8 +45,6 @@ function selectPack(){
       x3.classList.add('fa-times');
       x1.classList.remove('fa-check');
       x1.classList.add('fa-times');
-      s1.style.width = '.6em'
-      s1.style.height = '.6em'
     }
     if (level.value == 2) {
       numPages.textContent = 500;
@@ -53,8 +53,6 @@ function selectPack(){
       x3.classList.add('fa-check');
       x1.classList.remove('fa-check');
       x1.classList.add('fa-times');
-      s2.style.width = '.6em'
-      s2.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
     if (level.value == 3) {
@@ -62,22 +60,94 @@ function selectPack(){
       price.textContent = 16;
       x1.classList.remove('fa-times');
       x1.classList.add('fa-check');
-      s3.style.width = '.6em'
-      s3.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
     if (level.value == 4) {
       numPages.textContent = '5K';
       price.textContent = 24;
-      s4.style.width = '.6em'
-      s4.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
     if (level.value == 5) {
       numPages.textContent = '10K';
       price.textContent = 36;
-      s5.style.width = '.6em'
-      s5.style.height = '.6em'
       if(switchBtn.value == 'on') price.textContent -= (price.textContent * .25)
     }
 }
+
+function costumeSteps() {
+  if(level.value == 1){
+    s1.style.width = '.7em'
+    s1.style.height = '.7em'
+    s1.style.background = '#FFA35F';
+  } else {
+    s1.style.width = '.5em'
+    s1.style.height = '.5em'
+    s1.style.background = '#a0bfc5';
+  }
+  if(level.value == 2){
+    s2.style.width = '.7em'
+    s2.style.height = '.7em'
+    s2.style.background = '#FFA35F';
+  } else {
+    s2.style.width = '.5em'
+    s2.style.height = '.5em'
+    s2.style.background = '#a0bfc5';
+  }
+  if(level.value == 3){
+    s3.style.width = '.7em'
+    s3.style.height = '.7em'
+    s3.style.background = '#FFA35F';
+  } else {
+    s3.style.width = '.5em'
+    s3.style.height = '.5em'
+    s3.style.background = '#a0bfc5';
+  }
+  if(level.value == 4){
+    s4.style.width = '.7em'
+    s4.style.height = '.7em'
+    s4.style.background = '#FFA35F';
+  } else {
+    s4.style.width = '.5em'
+    s4.style.height = '.5em'
+    s4.style.background = '#a0bfc5';
+  }
+  if(level.value == 5){
+    s5.style.width = '.7em'
+    s5.style.height = '.7em'
+    s5.style.background = '#FFA35F';
+  } else {
+    s5.style.width = '.5em'
+    s5.style.height = '.5em'
+    s5.style.background = '#a0bfc5';
+  }
+}
+
+s1.addEventListener('click', () => {
+  level.value = 1;
+  selectPack();
+  costumeSteps();
+})
+
+s2.addEventListener('click', () => {
+  level.value = 2;
+  selectPack();
+  costumeSteps();
+})
+
+s3.addEventListener('click', () => {
+  level.value = 3;
+  selectPack();
+  costumeSteps();
+})
+
+s4.addEventListener('click', () => {
+  level.value = 4;
+  selectPack();
+  costumeSteps();
+})
+
+s5.addEventListener('click', () => {
+  level.value = 5;
+  selectPack();
+  costumeSteps();
+})
